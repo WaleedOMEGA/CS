@@ -1,0 +1,255 @@
+1
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+        int i,j,rows;
+    char ch='*';
+    cout<<"rows:\n";
+    cin>>rows;
+    cout<<"\n";
+    for(i=1; i<=rows;  i++){
+        for(j=1; j<=i; j++){
+
+            if(j==1 || j==i || i==rows){
+            cout<<ch;
+             }
+             else{
+               cout<<" ";
+    }
+}
+cout<<"\n";
+    }
+    return 0;
+}
+
+
+2
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+     int i,j,rows;
+    char ch='*';
+    cout<<"rows:\n";
+    cin>>rows;
+    cout<<"\n";
+    for(i=rows; i>=0;  i--){
+        for(j=i; j>=1; j--){
+
+
+            cout<<ch;
+
+               cout<<" ";
+
+}
+cout<<"\n";
+    }
+    return 0;
+}
+
+3
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arr[9],even=0,odd=0;
+    for(int i=0;i<9;i++){
+        cin >> arr[i];
+        if(arr[i]%2==0){
+            even=even+1;
+        }
+        else{
+            odd=odd+1;
+        }
+
+    }
+    cout << "Total Even elements: "<<even  << endl;
+    cout << "Total Odd elements: "<<odd  << endl;
+    return 0;
+}
+
+4
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   int arr[10],elem;
+   cout << "elements in array: ";
+    for(int i=0;i<10;i++){
+        cin >> arr[i];
+    }
+cout << "Element: ";
+           cin>>elem;
+     for(int i=0;i<9;i++){
+        if(arr[i]==elem){
+            cout << "Element found at index " << i<<endl;
+            break;
+        }
+    }
+    return 0;
+}
+
+5
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arr1[10],arr2[10];
+cout <<"array1 elements:";
+    for(int i=0;i<10;i++){
+        cin >> arr1[i];
+        arr2[i]=arr1[i];
+    }
+cout << "Array1: ";
+
+     for(int i=0;i<10;i++){
+
+            cout << arr1[i]<< " ";
+
+        }
+        cout <<endl;
+    cout << "Array2: ";
+
+     for(int i=0;i<10;i++){
+
+            cout << arr2[i]<<" ";
+
+        }
+        cout <<endl;
+    return 0;
+}
+
+6
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arr[10],repeat=0;
+    cout <<"array elements: ";
+    for (int i=0;i<10;i++){
+        cin >> arr[i];
+    }
+    cout << "All unique elements in the array are: " ;
+    for(int i=0;i<10;i++){
+            repeat=0;
+        for (int j=0;j<10;j++){
+            if(arr[i]==arr[j]){
+                repeat=repeat+1;
+            }
+        }
+        if(repeat<2){
+            cout <<" "<< arr[i] << " ,";
+        }
+    }
+    cout <<endl;
+    return 0;
+}
+
+7
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arr1[5],arr2[5];
+    cout << "first array elements: ";
+    for(int i=0;i<5;i++){
+        cin >> arr1[i];
+    }
+    cout << "second array elements: ";
+    for(int i=0;i<5;i++){
+        cin >> arr2[i];
+    }
+    cout << "Merged array in ascending order = " ;
+    for(int i=0;i<5;i++){
+        cout <<" "<< arr1[i] << " ,";
+         cout <<" "<< arr2[i] << " ,";
+    }
+    return 0;
+}
+
+Bounce 
+
+1
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int row;
+    char ch='*';
+    cout <<"rows: ";
+    cin >>row;
+     for(int i=1; i<=row; i++)
+     {
+           /* Print leading spaces */
+           for(int j=i; j<row; j++)
+           {
+                cout<<" ";
+           }
+
+           /* Print star */
+           for(int j=1; j<=(2*i-1); j++)
+           {
+                cout<<ch;
+           }
+
+           /* Move to next line */
+           cout<<"\n";
+     }
+    
+    return 0;
+
+2
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int rows;
+
+char ch='*';
+    cout << "Enter number of rows: ";
+    cin >> rows;
+
+
+
+    for(int i = 1; i <= rows; i++)
+    {
+    	for(int j = 1; j <= rows - i; j++)
+		{
+            cout << " ";
+        }
+        for(int k = 1; k <= rows; k++)
+        {
+            cout << ch;
+        }
+        cout << "\n";
+    }
+ 	return 0;
+}
