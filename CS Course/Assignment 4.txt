@@ -1,0 +1,175 @@
+1
+
+#include <iostream>
+
+using namespace std;
+
+void print(int num){
+cout << num << endl;
+}
+int main()
+{
+
+    print(5);
+    return 0;
+}
+
+
+2
+
+#include <iostream>
+
+using namespace std;
+
+float avg(int x,int y,int z){
+    float sum = x+y+z;
+    float avg=sum/3;
+return avg;
+}
+int main()
+{
+    cout << avg(2,3,5) << endl;
+    return 0;
+}
+
+3
+
+#include <iostream>
+
+using namespace std;
+
+bool prime(int num)
+{
+  int i, m=0;
+
+  m=num/2;
+  for(i = 2; i <= m; i++)
+  {
+      if(num % i == 0)
+      {
+          return false;
+      }
+  }
+  return true;
+}
+int main()
+{
+    cout << prime(7);
+
+}
+
+
+4
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void cube(){
+    int num;
+    cout << "any number :";
+    cin >> num;
+    int cube=pow(num,3);
+    cout << "Cube of " << num << " =" << " " << cube << endl;
+}
+int main()
+{
+    cube();
+}
+
+5
+
+#include <iostream>
+
+using namespace std;
+
+void circle(){
+float radius,diameter, circumference,area;
+float PI=3.1416;
+    cout << "radius: ";
+    cin >> radius;
+    diameter=2 * radius;
+    cout << "Diameter = " << diameter << " " << "units"<<endl;
+    // Circumference of Circle = 2 X PI x Radius
+    circumference = 2*PI*radius;
+    cout << "Circumference = " << circumference << " " << "units"<<endl;
+    area=PI*radius*radius;
+    cout << "Area = " << area << " " << "sq. units"<<endl;
+}
+int main()
+{
+    circle();
+}
+
+
+6
+
+#include <iostream>
+
+using namespace std;
+void printArray(int arr[10])
+{
+    cout << "Array elements:"<< endl;
+    for (int i = 0; i < 10; i++)
+    {
+                   cout<<arr[i]<<" ";
+    }
+}
+
+int main()
+{
+    int arr1[10]={1,2,3,4,5,6,7,8,9,10};
+     printArray(arr1);
+    return 0;
+}
+
+7
+
+#include <iostream>
+
+using namespace std;
+void sumArray(int arr[10])
+{
+    cout << "Sum of array: ";
+    int sum=0;
+    for (int i = 0; i < 10; i++)
+    {
+                  sum +=arr[i];
+    }
+    cout << sum;
+}
+
+int main()
+{
+    int arr1[10]={1,2,3,4,5,6,7,8,9,10};
+     sumArray(arr1);
+    return 0;
+}
+
+
+8
+
+#include <iostream>
+#include<algorithm>
+using namespace std;
+void maxArray(int arr[10])
+{
+    cout << "Maximum element = ";
+    int maximum=0;
+    for (int i = 0; i < 10; i++)
+    {
+
+          maximum=max(maximum,arr[i]);
+    }
+    cout << maximum;
+}
+
+int main()
+{
+    int arr1[10]={5, 1, 6, 10, 2, 3, 6, 50, -7, 4};
+     maxArray(arr1);
+    return 0;
+}
+
+9
+
