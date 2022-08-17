@@ -1,0 +1,95 @@
+1-
+
+if condition see if some condition happen and do some logic but switch it chosses betwen two or more states and do some logic in every state
+
+syntax if (x>2){
+return x
+}     -   switch (x){
+					case : 2
+						return 2;
+					default:
+						return 0
+					}
+condition : if condition success do something but in while not one condition it has two or more condtions
+
+default state in if there is no default but in switch case we have default case
+
+2- 
+
+do while do some logic repeatly until the condition fails and also it runs at least one time even the condition fails
+for do some logic repeatly at specific number of cycles
+x=1
+do {
+cout << "hi"
+}while (x>2)
+
+for (int i=0;i<2;i++){
+cout<< "i"
+}
+
+3-
+
+int - float - bigInt - char
+
+4-
+
+
+#include <iostream>
+
+using namespace std;
+
+int avg(int arr[5]){
+    int sum=0,avg=0;
+for(int i=0 ; i<5;i++){
+    sum+=arr[i];
+}
+avg=sum/5;
+return avg;
+}
+int main()
+{
+    int arr1[5]={1,2,3,4,5};
+    cout << avg(arr1) << endl;
+    return 0;
+}
+
+
+5-
+#include <iostream>
+
+using namespace std;
+
+void swap(int x,int y){
+int z=y;
+y=x;
+x=z;
+cout << "x=" << x <<endl;
+cout << "y=" << y <<endl;
+}
+int main()
+{
+    int x=5,y=6;
+    swap(x,y);
+
+}
+
+6-
+int main()
+{
+for(int i=1;i<=5;i++){
+for(int j=1;j<=5;j++){
+if(i==j){
+cout << i << " " ;
+cout << j << endl;
+}
+}
+}
+}
+
+7-
+
+*    
+**   
+* *  
+*  * 
+*    *
