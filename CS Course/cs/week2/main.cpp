@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x=1,n;
+    cin >> n;
+    while(x<=n){
+        if(x%5!=0)
+            cout << x << endl;
+        x++;
+    }
+
+    return 0;
+}
