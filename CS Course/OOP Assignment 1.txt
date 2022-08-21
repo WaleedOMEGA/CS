@@ -1,0 +1,309 @@
+1
+#include <iostream>
+
+using namespace std;
+
+class Date{
+private:
+    int day,month,year;
+public:
+    Date (int day,int month,int year):day(day),month(month),year(year){
+    }
+
+    int getDay(){
+    return day;
+    }
+    int getMonth(){
+    return month;
+    }
+    int getYear(){
+    return year;
+    }
+    void setDay(int d){
+		day = d;
+	}
+	void setMonth(int m){
+		month = m;
+	}
+	void setYear(int y){
+		year = y;
+	}
+	void setDate(int d, int m, int y) {
+		day = d;
+		month = m;
+		year = y;
+	}
+};
+
+
+int main()
+{
+    Date birth(1,12,1987);
+   cout<<birth.getDay()<<endl;
+	cout<<birth.getMonth()<<endl;
+	cout<<birth.getYear()<<endl;
+	birth.setDate(26,6,2020);	
+}
+
+2
+
+#include <iostream>
+
+using namespace std;
+
+class Time{
+private:
+    int hour,minute,second;
+public:
+    Time (int hour,int minute,int second):hour(hour),minute(minute),second(second){
+    }
+int getHour(){
+    return hour;
+    }
+    int getMinute(){
+    return minute;
+    }
+    int getSecond(){
+    return second;
+    }
+    void setHour(int h){
+    hour=h;
+    }
+    void setMinute(int m){
+    minute=m;
+    }
+    void setSecond(int s){
+    second=s;
+    }
+    void setTime (int h,int m,int s){
+        hour=h;
+        minute=m;
+        second=s;
+    }
+    int nextSecond() {
+		second++;
+		if (second >= 60) {
+			minute++;
+			second = 00;
+		}
+		if (minute >= 60) {
+			hour++;
+			minute = 00;
+		}
+		if (hour >= 24)
+			hour = 00;
+		return second;
+	}
+	int previousSecond() {
+		second--;
+		if (second <= 0) {
+			minute--;
+			second = 59;
+		}
+		if (minute <= 0) {
+			hour--;
+			minute = 59;
+		}
+		if (hour <= 0) {
+			hour = 23;
+		}
+		return second;
+	}
+};
+
+int main()
+{
+    Time today (8,20,15);
+    cout << today.getHour() << endl;
+    today.setHour(10);
+    cout << today.getHour() << endl;
+    today.nextSecond();
+	cout << today.getHour() << " : " << today.getMinute() << " : " << today.getSecond() << endl;
+	    today.previousSecond();
+	cout << today.getHour() << " : " << today.getMinute() << " : " << today.getSecond() << endl;
+    return 0;
+}
+
+
+3
+
+#include <iostream>
+
+using namespace std;
+class Auther
+{
+private:
+	string name;
+	string email;
+	char gender;
+
+public:
+    Auther(){
+		name = " ";
+		email = " ";
+		gender = '0';
+	}
+	Auther(string n, string e, char g){
+		name = n;
+		email = e;
+		gender = g;
+	}
+	void setName(string n){
+		name = n;
+	}
+	void setEmail(string e){
+		email = e;
+	}
+	void setGender(char g){
+		gender = g;
+	}
+	string getName(){
+		return name;
+	}
+	string getEmail(){
+		return email;
+	}
+	char getGender(){
+		return gender;
+	}
+};
+
+class Book{
+private:
+	string name;
+	double price;
+	int qty = 0;
+	Auther auther;
+
+public:
+	Book(string n, double p, Auther a, int q){
+		name = n;
+		price = p;
+		auther = a;
+		qty = q;
+	}
+	void setName(string n){
+		name = n;
+	}
+	void setPrice(double p){
+		price = p;
+	}
+	void setQty(int q){
+		qty = q;
+	}
+	void setAuther(Auther a){
+		auther = a;
+	}
+	string getName(){
+		return name;
+	}
+	double getPrice() {
+		return price;
+	}
+	int getQty() {
+		return qty;
+	}
+	Auther getAuther() {
+		return auther;
+	}
+
+};
+
+int main()
+{
+   Auther w("WALEED OMEGA", "waleedomega@hotmail.com", 'M');
+	Book bo("Web Coding", 150, w, 3);
+	cout << "Book Name : " << bo.getName() << endl;
+	cout << "Price : " << bo.getPrice() << endl;
+	cout << "Quantity : " << bo.getQty() << endl;
+	cout << "Auther Name : " << bo.getAuther().getName() << endl;
+	cout << "Auther Email : " << bo.getAuther().getEmail() << endl;
+	cout << "Auther Gender : " << bo.getAuther().getGender()<< endl;
+    return 0;
+}
+
+4
+
+#include <iostream>
+
+using namespace std;
+class Account
+{
+private:
+	string id;
+	string name;
+	int balance = 0;
+
+public:
+	Account(string n, string i){
+		name = n;
+		id = i;
+	}
+	Account(string n, string i, int b){
+		name = n;
+		id = i;
+		balance = b;
+	}
+	void setBalance(int b){
+		balance = b;
+	}
+	string getName(){
+		return name;
+	}
+	string getId(){
+		return id;
+	}
+	int getBalance(){
+		return balance;
+	}
+	int credit(int amount){
+		balance += amount;
+		return balance;
+	}
+	int debit(int amount){
+		if (amount <= balance){
+			balance -= amount;
+		}
+		else{
+			cout << "amount exceeded";
+		}
+		return balance;
+	}
+
+	int transfereTo(Account &a, int amount){
+		if (amount <= balance){
+			a.credit(amount);
+			balance -= amount;
+		}
+		else{
+			cout << "Amount exceeded";
+		}
+		return balance;
+	}
+};
+int main()
+{
+    Account a("WALEED", "112d5", 2000);
+	Account b("OMEGA", "122d5", 3000);
+	cout << "Hi " << a.getName() << " Your balance is : " << a.getBalance() << endl;
+
+	cout << "\nEnter amount you will add : \n";
+	int x;
+	cin >> x;
+	cout << "\nNow your balance is : " << a.credit(x) << endl;
+
+	cout << "\nEnter amount you will withdraw : \n";
+	int y;
+	cin >> y;
+	cout << "\nNow your balance is : " << a.debit(y) << endl;
+
+	cout << "\nMohamed Balance : " << b.getBalance() << endl;
+
+	cout << "\nEnter amount you will transfer : \n";
+	int z;
+	cin >> z;
+	cout << "\nNow your balance is : " << a.transfereTo(b, z) << endl;
+
+	cout << "\nMohamed Balance : " << b.getBalance() << endl;
+    return 0;
+}

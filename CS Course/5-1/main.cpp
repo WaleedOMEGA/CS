@@ -6,10 +6,7 @@ class Date{
 private:
     int day,month,year;
 public:
-    Date (int day,int month,int year){
-        day=day;
-        month=month;
-        year=year;
+    Date (int day,int month,int year):day(day),month(month),year(year){
     }
 
     int getDay(){
@@ -21,25 +18,28 @@ public:
     int getYear(){
     return year;
     }
-    void setDay(int day){
-    day=day;
-    }
-    void setMonth(int month){
-    month=month;
-    }
-    void setYear(int year){
-    year=year;
-    }
-    void setDate (int day,int month,int year){
-        day=day;
-        month=month;
-        year=year;
-    }
+    void setDay(int d){
+		day = d;
+	}
+	void setMonth(int m){
+		month = m;
+	}
+	void setYear(int y){
+		year = y;
+	}
+	void setDate(int d, int m, int y) {
+		day = d;
+		month = m;
+		year = y;
+	}
 };
 
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    Date birth(1,12,1987);
+   cout<<birth.getDay()<<endl;
+	cout<<birth.getMonth()<<endl;
+	cout<<birth.getYear()<<endl;
+	birth.setDate(26,6,2020);
 }
