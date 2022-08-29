@@ -1,0 +1,152 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class  Vehicle
+{
+protected:
+	string v_model;
+	string regist_num;
+	int v_speed;
+	double fuel_cap;
+	double fuel_consum;
+
+
+public:
+	//con:
+	Vehicle() {
+		v_model = " ";
+		regist_num = " ";
+		v_speed = 0;
+		fuel_cap = 0;
+		fuel_consum = 0;
+	}
+	Vehicle(string vm, string rn, int vs, double fcap, double fcon){
+		v_model = vm;
+		regist_num = rn;
+		v_speed = vs;
+		fuel_cap = fcap;
+		fuel_consum = fcon;
+	}
+	//Setters:
+	void set_v_model(string vm) {
+		v_model = vm;
+	}
+	void set_regist_num(string rn) {
+		regist_num = rn;
+	}
+	void set_v_speed(int vs) {
+		v_speed = vs;
+	}
+	void set_fuelcap(double fc) {
+		fuel_cap = fc;
+	}
+	void set_fuelconsum(double fm) {
+		fuel_consum = fm;
+	}
+
+	//Getters:
+	double fuelNeeded(int dis){
+		return fuel_consum * dis;
+	}
+	float distanceCovered(int h){
+		return v_speed * h;
+	}
+	string get_v_model() {
+		return v_model;
+	}
+	string get_regist_num(){
+		return regist_num;
+	}
+	int get_v_speed() {
+		return v_speed;
+	}
+	double get_fuelcap() {
+		return fuel_cap;
+	}
+	double get_fuelconsum() {
+		return fuel_consum;
+	}
+	void display(){
+		cout << " Vehicle model: " << v_model << endl;
+		cout << "Registration number: " << regist_num << endl;
+		cout << " Vehicle speed: " << v_speed << endl;
+		cout << "Fuel capacity: " << fuel_cap << endl;
+		cout << "Fuel consumption: " << fuel_consum << endl;
+
+	}
+};
+
+
+class Truck : public Vehicle
+{
+	double Cweight_limit;
+public:
+	//con:
+	Truck() {
+		Cweight_limit = 0;
+	}
+	Truck(string vm, string rn, int vs, double fcap, double fcon, double cwl) :Vehicle(vm, rn, vs, fcap, fcon){
+		Cweight_limit = cwl;
+	}
+
+	//Setter:
+	void set_Cweight_limit(double cwl){
+		Cweight_limit = cwl;
+	}
+
+	//Getters:
+	double get_Cweight_limit(){
+		return Cweight_limit;
+	}
+	void display(){
+		Vehicle::display();
+		cout << "Cargo weight limit: " << Cweight_limit << endl;
+		cout << "======================================\n";
+	}
+};
+
+
+class Bus : public Vehicle
+{
+	int numop;
+public:
+	//con;
+	Bus() {
+		numop = 0;
+	}
+	Bus(string vm, string rn, int vs, double fcap, double fcon, int nop) :Vehicle(vm, rn, vs, fcap, fcon){
+		numop = nop;
+	}
+
+	//Setter:
+	void set_numop(int nop){
+		numop = nop;
+	}
+
+	//Getters:
+	int get_numop(){
+		return numop;
+	}
+	void display(){
+		Vehicle::display();
+		cout << "Number of Passengers: " << numop << endl;
+		cout << "======================================\n";
+	}
+
+};
+
+
+int main(){
+
+Vehicle v("Fer", "123ab", 350, 10, 20);
+v.display();
+cout << "======================================\n";
+
+Truck k("Buggati", "498b", 220, 70, 33, 44);
+k.display();
+
+Bus m("BMW", "157we", 250, 310, 22, 200);
+m.display();
+return 0;
+}
