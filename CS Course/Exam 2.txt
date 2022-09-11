@@ -1,0 +1,113 @@
+1-
+Encapsulation : encapsulate alot of things in one thing 
+inheritance: the child class can inherit the parent class
+abstraction: that we can use abstract class that has at least one abstract method
+polymorphism : that we can use the method with more than one way
+
+
+2
+
+public : the public attr or method can be accessable anywhere
+private : private attr or method can be only be accssed inside the same class not his childs
+protected : protected attr or method can be accessed only inside the parent class and his childe not outside them
+
+3- template <class T>
+class Calc{
+
+private :
+T X,Y;
+public :
+T add (x,y){
+return x+y
+}
+}
+
+
+4 - exception handling
+class Calc{
+private:
+int x,y
+
+public:
+int dvide(x,y){
+if(y==0){
+cout<<'you can't divide by zero'<<endl;
+return 0
+}else{
+return x/y
+}
+}
+}
+
+5-override has 3 conditions
+- the same name of method
+- the same signature
+- the classes has relation inheritance
+
+overload :
+the same name of method
+different signature
+
+6
+
+class Point2D{
+protected:
+float X,Y;
+public:
+Point2D(){
+X=0.0;
+Y=0.0;
+}
+Point2D(float d1,float d2){
+X=d1;
+Y=d2;
+}
+
+float getX(){
+return X;
+}
+
+void setX(float d1){
+X=d1
+}
+float getY(){
+return Y;
+}
+
+float setY(float d2){
+Y=d2
+}
+float [2] getXY(){
+return [X,Y];
+}
+
+void setXY(float d1,float d2){
+[X,Y]=[d1,d2]
+}
+}
+
+class Point3D : protected class Point2D{
+private :
+float Z;
+public:
+Point3D(){
+z=0.0;
+}
+Point3D(float d1,float d2,float d3):Point 2D(float d1,float d2){
+Z=d3;
+}
+float getZ(){
+return Z;
+}
+
+float setZ(float d2){
+Z=d2
+}
+float [3] getXYZ(){
+return [X,Y,Z];
+}
+
+void setXYZ(float d1,float d2,float d3){
+[X,Y,Z]=[d1,d2,d3]
+}
+}
