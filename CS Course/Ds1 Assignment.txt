@@ -1,0 +1,329 @@
+1
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class person
+{
+protected:
+    string firstName,lastName,id,password;
+public:
+    person()
+    {
+        firstName="";
+        lastName="";
+        id="";
+        password="";
+    }
+    person(string fn,string ln,string i,string pwd)
+    {
+        firstName=fn;
+        lastName=ln;
+        id=i;
+        password=pwd;
+    }
+
+    void setFirstName(string fn)
+    {
+        firstName=fn;
+    }
+
+    string getFirstName()
+    {
+        return firstName;
+    }
+
+    void setLastName(string ln)
+    {
+        lastName=ln;
+    }
+
+    string getLastName()
+    {
+        return lastName;
+    }
+
+    void setId(string i)
+    {
+        id=i;
+    }
+
+    string getId()
+    {
+        return id;
+    }
+
+    void setPassword(string pwd)
+    {
+        password=pwd;
+    }
+
+    string getPassword()
+    {
+        return password;
+    }
+
+
+
+
+};
+
+class instructor:public person
+{
+
+public:
+    instructor()
+    {
+        firstName="";
+        lastName="";
+        id="";
+        password="";
+
+    }
+    instructor(string fn,string ln,string id,string pwd):person(fn,ln,id,pwd)
+    {
+    }
+    void print()
+    {
+        cout<<"the " <<"instructor "<<" information"<<endl;
+        cout<<"First Name : "<<getFirstName()<<endl;
+        cout<<"Last Name : "<<getLastName()<<endl;
+        cout<<"ID : "<<getId()<<endl;
+        cout<<"Password : "<<getPassword()<<endl;
+
+    }
+};
+
+class student:public person
+{
+
+public:
+    student()
+    {
+        firstName="";
+        lastName="";
+        id="";
+        password="";
+
+    }
+    student(string fn,string ln,string id,string pwd):person(fn,ln,id,pwd)
+    {
+
+    }
+    void print()
+    {
+        cout<<"the " <<"Student "<<" information"<<endl;
+        cout<<"First Name : "<<getFirstName()<<endl;
+        cout<<"Last Name : "<<getLastName()<<endl;
+        cout<<"ID : "<<getId()<<endl;
+        cout<<"Password : "<<getPassword()<<endl;
+
+    }
+};
+
+class course
+{
+private:
+    string name,id;
+    instructor inst;
+    vector <student> students;
+public:
+    course()
+    {
+        name="";
+        id="";
+        instructor("","","","");
+        students.clear();
+    }
+    course(string n,string i,instructor in,vector <student> stud)
+    {
+        name=n;
+        id=i;
+        inst=in;
+        students=stud;
+    }
+
+    void setName(string n){
+    name=n;
+    }
+    string getName(){
+    return name;
+    }
+    void setId(string i){
+    id=i;
+    }
+    string getId(){
+    return id;
+    }
+    void setInstructor(instructor intr){
+    inst=intr;
+    }
+    instructor getInstructor(){
+    return inst;
+    }
+    void setStudents(vector <student> stds){
+    students=stds;
+    }
+    vector <student> getStudents(){
+    return students;
+    }
+    void addStudent(string fn,string ln,string id,string pass){
+    students.push_back(student(fn,ln,id,pass));
+    }
+    vector <student> getStudentsInfo(){
+        cout<<"all the students Info"<<endl;
+        cout<<"++++++++++++++++++++++++++++"<<endl;
+        for (int i = 0; i < students.size(); i++) {
+		cout<<"first Name : " << students[i].getFirstName() << endl;
+		cout<<"last Name : " << students[i].getLastName() << endl;
+		cout<<"Id : " << students[i].getId() << endl;
+		cout<<"Password : " << students[i].getPassword() << endl;
+		cout<<"------------------------------------"<<endl;
+	}
+	return students;
+    }
+	void getCourseInfo(){
+	cout<<"all course informations :"<<endl;
+	cout<<"++++++++++++++++++++++++++++"<<endl;
+	cout<<"Course Name : "<<getName()<<endl;
+	cout<<"Course Id : "<<getId()<<endl;
+	 cout<<"all the instructor Info"<<endl;
+        cout<<"++++++++++++++++++++++++++++"<<endl;
+	cout<<"Instructor First Name : "<<getInstructor().getFirstName()<<endl;
+	cout<<"Instructor Last Name : "<<getInstructor().getLastName()<<endl;
+	cout<<"Instructor Id : "<<getInstructor().getId()<<endl;
+	cout<<"Instructor Password : "<<getInstructor().getPassword()<<endl;
+	getStudentsInfo();
+
+	}
+
+
+};
+int main()
+{
+    instructor waleed ("waleed","salah","1","123456");
+    course iti;
+    iti.setName("iti");
+    iti.setId("1");
+    iti.setInstructor(waleed);
+    iti.addStudent("ahmed","bahaa","2222","333");
+    iti.addStudent("aml","basem","2222","333");
+    iti.addStudent("andro","bean","2222","333");
+    iti.addStudent("asmaa","badr","2222","333");
+    iti.addStudent("ali","bassam","2222","333");
+    iti.addStudent("amr","belal","2222","333");
+    iti.getCourseInfo();
+
+
+
+}
+
+2
+
+#include <iostream>
+
+using namespace std;
+template <class T>
+class DivisionByZeroInCalculator;
+template <class T>
+class Calculator {
+	T num1;
+	T num2;
+public:
+	Calculator(T num1, T num2) {
+		this->num1 = num1;
+		this->num2 = num2;
+		if (num2 == 0) {
+			cout << "WARNING : YOU'LL NOT BE ABLE TO DIVIDE " << num1 << " by zero" << endl;
+		}
+	}
+	void add() {
+		cout << num1 << " + " << num2 << " = " << (num1 + num2) << endl;
+	}
+	void subtract() {
+		cout << num1 << " - " << num2 << " = " << (num1 - num2) << endl;
+	}
+	void multiply() {
+		cout << num1 << " * " << num2 << " = " << (num1 * num2) << endl;
+	}
+	void divide() {
+		if (num2 == 0)
+			throw DivisionByZeroInCalculator<T>(num1);
+
+		cout << num1 << " / " << num2 << " = " << (num1 / num2) << endl;
+	}
+};
+	template <class T>
+class DivisionByZeroInCalculator : public exception {
+	int num1;
+public:
+
+	DivisionByZeroInCalculator(T num1) {
+		this->num1 = num1;
+	}
+
+	const char* what() const throw() {
+		cout << "Can't divide " << num1;
+		return " by zero";
+	}
+	T getNum1() {
+		return num1;
+	}
+};
+
+int main()
+{
+    try{
+			Calculator<int> c1(5,10);  // 2 integers
+
+			c1.add();
+			c1.subtract();
+			c1.multiply();
+			c1.divide();
+		}
+		catch(DivisionByZeroInCalculator<int>& ex){
+			cout << ex.what();
+		}
+
+		try{
+
+			Calculator<float> c2(5.0,0);  // 2 floating point numbers
+
+			c2.add();
+			c2.subtract();
+			c2.multiply();
+			c2.divide();
+		}
+		catch(DivisionByZeroInCalculator<float>& ex){
+			cout << ex.what();
+		}
+
+
+
+}
+
+3
+
+int fib(int n)
+{
+	if (n == 0)
+		return 0;
+	if (n == 1 || n == 2)
+		return 1;
+	// Recursion function
+	else
+		return (fib(n - 1) + fib(n - 2));
+}
+int main()
+{
+	int n = 10;
+	cout << "Fibonacci series of "<< n <<" numbers is: ";
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << fib(i) << " ";
+	}
+	return 0;
+}
