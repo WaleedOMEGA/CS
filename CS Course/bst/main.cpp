@@ -28,7 +28,7 @@ private:
 public:
     BST()
     {
-        root=nullptr;;
+        root=nullptr;
     }
     bool search(int value)
     {
@@ -54,29 +54,7 @@ public:
     if(root==nullptr){
         root=n;
         return;
-    void addValue(int value)
-    {
-        if(search(value)) return;
-        Node* n=new Node(value,nullptr,nullptr);
-        if(root==nullptr)
-        {
-            root=n;
-            return;
-        }
     }
-<<<<<<< .mine
-
-
-
-
-
-
-
-
-
-
-
-=======
     Node* p=root;
     while(true){
         if(value >p->value){
@@ -88,16 +66,34 @@ public:
             p=p->left;
         }
     }
->>>>>>> .theirs
     if(value >p->value){
         p->right=n;
     }else{
     p->left=n;
     }
     }
+void DFS(Node* n)
+    {
+        if(n == nullptr)return;
+        cout<<n->value<<"->";
+        DFS(n->left);
+        DFS(n->right);
+    }
 
+    void print(){
+    DFS(root);
+    }
 };
 int main()
 {
-
+BST myTree;
+    myTree.addValue(50);
+    myTree.addValue(40);
+    myTree.addValue(60);
+    myTree.addValue(30);
+    myTree.addValue(70);
+    myTree.addValue(20);
+    myTree.addValue(90);
+    myTree.addValue(50);
+  myTree.print();
 }
