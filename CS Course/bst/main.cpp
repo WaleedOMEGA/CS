@@ -55,10 +55,26 @@ public:
         root=n;
         return;
     }
+    Node* p=root;
+    while(true){
+        if(value >p->value){
+            if(p->right==nullptr)break;
+            p=p->right;
+        }
+        else{
+            if(p->left==nullptr)break;
+            p=p->left;
+        }
     }
+    if(value >p->value){
+        p->right=n;
+    }else{
+    p->left=n;
+    }
+    }
+
 };
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
