@@ -28,7 +28,7 @@ private:
 public:
     BST()
     {
-        root=nullptr;
+        root=nullptr;;
     }
     bool search(int value)
     {
@@ -48,17 +48,20 @@ public:
         return false;
     }
 
-    void addValue(int value){
-    if(search(value)) return;
-    Node* n=new Node(value,nullptr,nullptr);
-    if(root==nullptr){
-        root=n;
-        return;
+    void addValue(int value)
+    {
+        if(search(value)) return;
+        Node* n=new Node(value,nullptr,nullptr);
+        if(root==nullptr)
+        {
+            root=n;
+            return;
+        }
     }
-    }
+
+
 };
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
