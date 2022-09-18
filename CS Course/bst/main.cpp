@@ -48,6 +48,12 @@ public:
         return false;
     }
 
+    void addValue(int value){
+    if(search(value)) return;
+    Node* n=new Node(value,nullptr,nullptr);
+    if(root==nullptr){
+        root=n;
+        return;
     void addValue(int value)
     {
         if(search(value)) return;
@@ -58,7 +64,37 @@ public:
             return;
         }
     }
+<<<<<<< .mine
 
+
+
+
+
+
+
+
+
+
+
+=======
+    Node* p=root;
+    while(true){
+        if(value >p->value){
+            if(p->right==nullptr)break;
+            p=p->right;
+        }
+        else{
+            if(p->left==nullptr)break;
+            p=p->left;
+        }
+    }
+>>>>>>> .theirs
+    if(value >p->value){
+        p->right=n;
+    }else{
+    p->left=n;
+    }
+    }
 
 };
 int main()
