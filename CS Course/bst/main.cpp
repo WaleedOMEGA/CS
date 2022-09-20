@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <queue>
 using namespace std;
 class Node
 {
@@ -83,6 +83,20 @@ void DFS(Node* n)
     void print(){
     DFS(root);
     }
+    void BFS(){
+    queue <Node*> q;
+    q.push(root);
+    while(!q.empty()){
+        cout<<q.front()->value<<"->";
+if(q.front()->left !=nullptr){
+    q.push(q.front()->left);
+}
+if(q.front()->right !=nullptr){
+    q.push(q.front()->right);
+}
+q.pop();
+    }
+    }
 };
 int main()
 {
@@ -95,5 +109,5 @@ BST myTree;
     myTree.addValue(20);
     myTree.addValue(90);
     myTree.addValue(50);
-  myTree.print();
+  myTree.BFS();
 }
