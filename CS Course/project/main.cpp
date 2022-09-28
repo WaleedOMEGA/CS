@@ -13,48 +13,59 @@ public:
     Person()
     {
         id=0;
-        name="";
-        password="";
+        name="No - Name";
+        password="No - Password";
+        balance=0;
     }
-    Person(int i,string n,string p)
+    Person(int i,string n,string p,double b)
     {
         id=i;
         name=n;
         password=p;
+        balance=b;
     }
     //Setters:
-    void set_id(int id)
+    void setId(int id)
     {
         this->id = id;
     }
-    void set_name(string name)
+    void setName(string name)
     {
         this->name = name;
     }
-    void set_password(string password)
+    void setPassword(string password)
     {
         this->password = password;
     }
+    void setBalance(double balance)
+    {
+        this->balance = balance;
+    }
 
     //Getters:
-    int get_id()
+    int getId()
     {
         return id;
     }
-    string get_name()
+    string getName()
     {
         return name;
     }
-    string get_password()
+    string getPassword()
     {
         return password;
+    }
+    double getBalance()
+    {
+        return balance;
     }
 
     void display()
     {
-        cout << "ID Number:" << id << endl;
-        cout << "User Name:" << name << endl;
-        cout << "Password:" << password << endl;
+        cout << "ID Number:" << getId() << endl;
+        cout << "User Name:" << getName() << endl;
+        cout << "Password:" << getPassword() << endl;
+        cout << "Balance:" << getBalance() << endl;
     }
 
 
@@ -128,6 +139,8 @@ public:
 };
 int main()
 {
+    Person p;
+    p.display();
     Validation::checkName("wwdddsddsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdssdddw");
     Validation::checkPassword("ww1dsw");
     Validation::checkBalance(200);
