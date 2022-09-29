@@ -12,6 +12,9 @@ public class Player {
     private String name;
     private char op;
 
+    public Player() {
+    }
+
     public Player(String name, char op) {
         this.name = name;
         this.op = op;

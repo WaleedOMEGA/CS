@@ -9,5 +9,5 @@ package com.mycompany.c16xo;
  * @author Waleed OMEGA
  */
 public interface BoardInter {
-    boolean isWin();
+    boolean isWin(Player p);
 }

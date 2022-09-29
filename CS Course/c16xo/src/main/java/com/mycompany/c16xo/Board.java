@@ -12,6 +12,9 @@ public class Board implements BoardInter {
 
     char[][] arr;
 
+    public Board() {
+    }
+
     public Board(char[][] arr) {
         this.arr = new char[][]{{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
     }
@@ -92,5 +95,6 @@ public class Board implements BoardInter {
         if (arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2] && arr[0][0] == arr[2][2]) {
             return true;
         }
+        return false;
     }
 }
