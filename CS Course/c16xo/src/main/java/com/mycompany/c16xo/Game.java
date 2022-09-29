@@ -4,6 +4,7 @@
  */
 package com.mycompany.c16xo;
 
+import java.util.Scanner;
 /**
  *
  * @author Waleed OMEGA
@@ -13,7 +14,8 @@ public class Game {
     private Player p2=new Player();
     private Board b=new Board();
     private int count=0;
-    
-    public void readPlayerData(){
     Scanner cin=new Scanner(System.in);
+    public void readPlayerData(){
+        System.out.println("Please Enter p1 name: ");
+    }
 }
