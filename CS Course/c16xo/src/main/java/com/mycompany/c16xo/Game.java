@@ -17,5 +17,23 @@ public class Game {
     Scanner cin=new Scanner(System.in);
     public void readPlayerData(){
         System.out.println("Please Enter p1 name: ");
+        String s=cin.next();
+        p1.setName(s);
+        System.out.println("Please Enter p2 name: ");
+        s=cin.next();
+        p2.setName(s);
+         System.out.println("Please Enter p1 OP: ");
+        String op=cin.next();
+        p1.setOp(op.charAt(0));
+        if(p1.getOp()=='x')
+            p2.setOp('o');
+        else
+            p2.setOp('x');
+                    
+    }
+    
+    public void play(){
+        readPlayerData();
+        b.draw();
     }
 }
