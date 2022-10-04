@@ -35,5 +35,27 @@ public class Game {
     public void play(){
         readPlayerData();
         b.draw();
+        while(!b.isFull()){
+            Player currentPlayer = p1;
+            if(count % 2 == 1) currentPlayer=p2;
+            while(true){
+            int pos;
+            System.out.println("Please enter empty pos from 1 to 9: ");
+            pos=cin.nextInt();
+            if(b.replaceChar(pos, currentPlayer)){
+            break;
+            }
+            }
+            b.draw();
+            if(b.isWin(currentPlayer)){
+            System.out.println("Winner is : "+currentPlayer.getName());
+            }
+            
+            count++;
+            
+        }
+        if(b.isFull()){
+            System.out.println("Game is Draw");
+        }
     }
 }

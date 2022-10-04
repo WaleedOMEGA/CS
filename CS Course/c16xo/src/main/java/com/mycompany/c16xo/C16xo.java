@@ -12,6 +12,7 @@ package com.mycompany.c16xo;
 public class C16xo {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Game myXO=new Game();
+        myXO.play();
     }
 }
